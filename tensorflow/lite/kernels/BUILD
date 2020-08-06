@@ -205,10 +205,10 @@ cc_library(
     deps = [
         "//tensorflow/lite/tools/delegates:coreml_delegate_provider",
         "//tensorflow/lite/tools/delegates:default_execution_provider",
-        "//tensorflow/lite/tools/delegates:external_delegate_provider",
-        "//tensorflow/lite/tools/delegates:hexagon_delegate_provider",
+        # "//tensorflow/lite/tools/delegates:external_delegate_provider",
+        # "//tensorflow/lite/tools/delegates:hexagon_delegate_provider",
         "//tensorflow/lite/tools/delegates:nnapi_delegate_provider",
-        "//tensorflow/lite/tools/delegates:xnnpack_delegate_provider",
+        # "//tensorflow/lite/tools/delegates:xnnpack_delegate_provider",
     ] + select({
         # Metal GPU delegate for iOS has its own setups for kernel tests, so
         # skipping linking w/ the gpu_delegate_provider.
@@ -487,7 +487,7 @@ cc_test(
         ":test_delegate_providers_lib",
         "//tensorflow/lite/tools/delegates:default_execution_provider",
         "//tensorflow/lite/tools/delegates:nnapi_delegate_provider",
-        "//tensorflow/lite/tools/delegates:xnnpack_delegate_provider",
+        # "//tensorflow/lite/tools/delegates:xnnpack_delegate_provider",
         "@com_google_googletest//:gtest_main",
     ],
 )
@@ -860,7 +860,7 @@ cc_test(
     srcs = ["activations_test.cc"],
     tags = [
         "tflite_nnapi",
-        "tflite_xnnpack",
+        # "tflite_xnnpack",
     ],
     deps = [
         ":test_main",
@@ -881,7 +881,7 @@ cc_test(
     srcs = ["add_test.cc"],
     tags = [
         "tflite_nnapi",
-        "tflite_xnnpack",
+        # "tflite_xnnpack",
     ],
     deps = [
         ":test_main",
@@ -1542,6 +1542,7 @@ cc_test(
         "@com_google_googletest//:gtest",
         "@flatbuffers",
     ],
+    linkstatic=True,    # static build
 )
 
 cc_test(
@@ -1564,7 +1565,7 @@ cc_test(
     srcs = ["pooling_test.cc"],
     tags = [
         "tflite_nnapi",
-        "tflite_xnnpack",
+        # "tflite_xnnpack",
     ],
     deps = [
         ":test_main",
@@ -1581,7 +1582,7 @@ cc_test(
     srcs = ["softmax_test.cc"],
     tags = [
         "tflite_nnapi",
-        "tflite_xnnpack",
+        # "tflite_xnnpack",
     ],
     deps = [
         ":test_main",

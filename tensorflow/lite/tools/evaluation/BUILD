@@ -51,21 +51,22 @@ cc_library(
             "//tensorflow/lite/delegates/nnapi:nnapi_delegate",
         ],
         "//conditions:default": [],
-    }) + select({
-        "//tensorflow:android_arm": [
-            "//tensorflow/lite/delegates/hexagon:hexagon_delegate",
-        ],
-        "//tensorflow:android_arm64": [
-            "//tensorflow/lite/delegates/hexagon:hexagon_delegate",
-        ],
-        "//conditions:default": [],
-    }) + select({
-        "//tensorflow:fuchsia": [],
-        "//tensorflow:windows": [],
-        "//conditions:default": [
-            "//tensorflow/lite/delegates/xnnpack:xnnpack_delegate",
-        ],
-    }),
+    })
+    # + select({
+    #     "//tensorflow:android_arm": [
+    #         "//tensorflow/lite/delegates/hexagon:hexagon_delegate",
+    #     ],
+    #     "//tensorflow:android_arm64": [
+    #         "//tensorflow/lite/delegates/hexagon:hexagon_delegate",
+    #     ],
+    #     "//conditions:default": [],
+    # }) + select({
+    #     "//tensorflow:fuchsia": [],
+    #     "//tensorflow:windows": [],
+    #     "//conditions:default": [
+    #         "//tensorflow/lite/delegates/xnnpack:xnnpack_delegate",
+    #     ],
+    # }),
 )
 
 cc_library(

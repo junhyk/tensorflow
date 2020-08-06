@@ -13,6 +13,7 @@ load("//third_party/toolchains/remote:configure.bzl", "remote_execution_configur
 load("//third_party/toolchains/clang6:repo.bzl", "clang6_configure")
 load("//third_party/toolchains/cpus/arm:arm_compiler_configure.bzl", "arm_compiler_configure")
 load("//third_party/toolchains/embedded/arm-linux:arm_linux_toolchain_configure.bzl", "arm_linux_toolchain_configure")
+load("//third_party/toolchains/riscv64:riscv_linux_toolchain_configure.bzl", "riscv64_linux_toolchain_configure")
 load("//third_party:repo.bzl", "tf_http_archive")
 load("//third_party/clang_toolchain:cc_configure_clang.bzl", "cc_download_clang_toolchain")
 load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_file")
@@ -125,6 +126,13 @@ def tf_repositories(path_prefix = "", tf_repo_name = ""):
         build_file = clean_dep("//third_party/toolchains/embedded/arm-linux:BUILD"),
         aarch64_repo = "../aarch64_linux_toolchain",
         armhf_repo = "../armhf_linux_toolchain",
+    )
+
+    # TFLite crossbuild toolchain for riscv
+    riscv64_linux_toolchain_configure(
+        name = "local_config_riscv64",
+        build_file = clean_dep("//third_party/toolchains/riscv64:BUILD"),
+        riscv64_repo = "/home/jhjang/host", # this is where I installed riscv-gnu-toolchain
     )
 
     mkl_repository(

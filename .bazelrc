@@ -80,6 +80,9 @@
 #     elinux_aarch64:  Embedded Linux options for aarch64 (ARM64) CPU support.
 #     elinux_armhf:    Embedded Linux options for armhf (ARMv7) CPU support.
 #
+# RiscV options
+#     riscv64:         use riscv gnu toolchain for rv64gc support.
+#
 # Release build options (for all operating systems)
 #     release_common:       Common options for all builds on all operating systems.
 #     release_windows_common:    Common options for all builds on Windows.
@@ -551,6 +554,10 @@ build:elinux_aarch64 --config=elinux
 build:elinux_aarch64 --cpu=aarch64
 build:elinux_armhf --config=elinux
 build:elinux_armhf --cpu=armhf
+
+build:riscv64 --crosstool_top=@local_config_riscv64//:toolchain
+build:riscv64 --host_crosstool_top=@bazel_tools//tools/cpp:toolchain
+build:riscv64 --cpu=riscv64
 # END TF REMOTE BUILD EXECUTION OPTIONS
 
 # Default options should come above this line

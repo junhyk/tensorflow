@@ -36,10 +36,10 @@ limitations under the License.
 #endif
 #endif
 
-// TODO(b/149248802): include XNNPACK delegate when the issue is resolved.
-#if !defined(__Fuchsia__) || defined(TFLITE_WITHOUT_XNNPACK)
-#include "tensorflow/lite/delegates/xnnpack/xnnpack_delegate.h"
-#endif
+// // TODO(b/149248802): include XNNPACK delegate when the issue is resolved.
+// #if !defined(__Fuchsia__) || defined(TFLITE_WITHOUT_XNNPACK)
+// #include "tensorflow/lite/delegates/xnnpack/xnnpack_delegate.h"
+// #endif
 
 #include "tensorflow/lite/c/common.h"
 
@@ -87,11 +87,11 @@ TfLiteDelegatePtr CreateHexagonDelegate(
 #endif
 
 // TODO(b/149248802): include XNNPACK delegate when the issue is resolved.
-#if !defined(__Fuchsia__) || defined(TFLITE_WITHOUT_XNNPACK)
-TfLiteDelegatePtr CreateXNNPACKDelegate();
-TfLiteDelegatePtr CreateXNNPACKDelegate(
-    const TfLiteXNNPackDelegateOptions* options);
-#endif
+// #if !defined(__Fuchsia__) || defined(TFLITE_WITHOUT_XNNPACK)
+// TfLiteDelegatePtr CreateXNNPACKDelegate();
+// TfLiteDelegatePtr CreateXNNPACKDelegate(
+//     const TfLiteXNNPackDelegateOptions* options);
+// #endif
 TfLiteDelegatePtr CreateXNNPACKDelegate(int num_threads);
 }  // namespace evaluation
 }  // namespace tflite

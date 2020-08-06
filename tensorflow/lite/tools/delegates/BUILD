@@ -31,10 +31,10 @@ cc_library(
         ":coreml_delegate_provider",
         ":default_execution_provider",
         ":external_delegate_provider",
-        ":gpu_delegate_provider",
-        ":hexagon_delegate_provider",
+        # ":gpu_delegate_provider",
+        # ":hexagon_delegate_provider",
         ":nnapi_delegate_provider",
-        ":xnnpack_delegate_provider",
+        # ":xnnpack_delegate_provider",
     ],
     alwayslink = 1,
 )
@@ -130,18 +130,18 @@ cc_library(
     alwayslink = 1,
 )
 
-cc_library(
-    name = "xnnpack_delegate_provider",
-    srcs = ["xnnpack_delegate_provider.cc"],
-    copts = tflite_copts(),
-    linkstatic = True,
-    visibility = ["//visibility:public"],
-    deps = [
-        ":delegate_provider_hdr",
-        "//tensorflow/lite/tools/evaluation:utils",
-    ],
-    alwayslink = 1,
-)
+# cc_library(
+#     name = "xnnpack_delegate_provider",
+#     srcs = ["xnnpack_delegate_provider.cc"],
+#     copts = tflite_copts(),
+#     linkstatic = True,
+#     visibility = ["//visibility:public"],
+#     deps = [
+#         ":delegate_provider_hdr",
+#         "//tensorflow/lite/tools/evaluation:utils",
+#     ],
+#     alwayslink = 1,
+# )
 
 cc_library(
     name = "external_delegate_provider",

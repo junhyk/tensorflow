@@ -221,6 +221,12 @@ config_setting(
 )
 
 config_setting(
+    name = "linux_riscv64",
+    values = {"cpu": "riscv64"},
+    visibility = ["//visibility:public"],
+)
+
+config_setting(
     name = "linux_x86_64",
     values = {"cpu": "k8"},
     visibility = ["//visibility:public"],
