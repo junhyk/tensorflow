@@ -1,3 +1,10 @@
+# Build Command Example
+```
+bazel build --config=riscv64 //tensorflow/lite/kernels:fully_connected_test
+```
+
+***
+
 <div align="center">
   <img src="https://www.tensorflow.org/images/tf_logo_social.png">
 </div>
